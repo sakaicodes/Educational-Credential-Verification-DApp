@@ -4,7 +4,7 @@ import Header from "../components/Header";
 
 export default function Verification() {
     return (
-        <>
+        <div className='bg-gray-100'>
             <Header />
             <div className="container mx-auto mt-4 mb-8">
             <h1 className="text-3xl font-bold text-center mb-4">Welcome to the Credential Verification Portal</h1>
@@ -14,6 +14,6 @@ export default function Verification() {
                 <CredentialVerification />
             </div>
             
-        </>
+        </div>
     )
 }

@@ -71,7 +71,7 @@ export default function IssueCredentialForm() {
 
     return (
         <div className="flex items-center justify-center h-screen">
-            <div className="max-w-md mx-auto p-4 border rounded shadow">
+            <div className="bg-white max-w-md mx-auto p-4 border rounded shadow">
                 <h2 className="text-2xl font-bold mb-4 text-center">Issue Student Credential Form</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
