@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../img/logo.png'; 
+import { CURRENT_USER, USER_TYPES } from '../App';
 
 export default function Header() {
     return (
@@ -11,9 +12,10 @@ export default function Header() {
                 </div>
                 <div className="flex items-center space-x-6">
                     <NavLink to="/home">Home</NavLink>
-                    <NavLink to="/verifierportal">Verifier Portal</NavLink>
-                    <NavLink to="/issuerportal">Issuer Portal</NavLink>
-                    <NavLink to="/dashboard">Dashboard</NavLink>
+                    {(CURRENT_USER === USER_TYPES.VERIFIER || CURRENT_USER === USER_TYPES.ADMIN) && <NavLink to="/verifierportal">Verifier Portal</NavLink>}
+                    {(CURRENT_USER === USER_TYPES.ISSUER || CURRENT_USER === USER_TYPES.ADMIN) && <NavLink to="/issuerportal">Issuer Portal</NavLink>}
+                    {(CURRENT_USER === USER_TYPES.ISSUER || CURRENT_USER === USER_TYPES.ADMIN) && <NavLink to="/dashboard">Dashboard</NavLink>}
+                    <div className='text-white'>Logged in as a {CURRENT_USER}</div>
                 </div>
             </div>
         </nav>
