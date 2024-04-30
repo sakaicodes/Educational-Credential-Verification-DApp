@@ -13,7 +13,7 @@ export const USER_TYPES = {
   ADMIN: "Admin"
 }
 
-export const CURRENT_USER = USER_TYPES.VERIFIER
+export const CURRENT_USER = USER_TYPES.ADMIN
 
 function App() {
   return (
