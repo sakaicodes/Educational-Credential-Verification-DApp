@@ -109,4 +109,17 @@ contract IssueCredential {
         function getIssuerDetails(bytes32 _credentialId) public view  returns(Issuer memory){
             return issuerLookUp[_credentialId];
         }
+
+        // Functions for testing 
+        function setIPFSHash(bytes32 credentialId, string memory ipfsHash) public {
+            ipfsHashes[credentialId] = ipfsHash;
+        }
+
+        function setIssuerDetails(bytes32 credentialId, string memory nameOfIssuer, address addressOfIssuer) public {
+            Issuer memory newIssuer;
+            newIssuer.nameOfIssuer = nameOfIssuer;
+            newIssuer.addressOfIssuer = addressOfIssuer;
+            issuerLookUp[credentialId] = newIssuer;
+    }
 }
+
