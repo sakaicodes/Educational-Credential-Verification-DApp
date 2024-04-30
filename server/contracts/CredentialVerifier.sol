@@ -20,4 +20,8 @@ contract VerifyCredential is IIssueCredential{
     function getIssuerDetails(bytes32 _credentialId) public view override returns(Issuer memory){
         return issueCredentialContract.getIssuerDetails(_credentialId);
     }
+
+    function getIssueCredentialContract() public view returns (address) {
+        return address(issueCredentialContract);
+    }
 }
