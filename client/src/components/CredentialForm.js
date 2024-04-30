@@ -11,6 +11,7 @@ export default function IssueCredentialForm() {
     const [isCredentialStored, setIsCredentialStored] = useState(false);
     const [credentialId, setCredentialId] = useState('');
     const [errors, setErrors] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
 
     async function requestAccount() {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -18,13 +19,14 @@ export default function IssueCredentialForm() {
 
     async function storeCredential() {
         try {
+            setIsLoading(true); // Set loading to true when starting transaction
             if (typeof window.ethereum !== 'undefined') {
                 await requestAccount();
 
                 const provider = new ethers.providers.Web3Provider(window.ethereum)
                 const signer = provider.getSigner();
                 // Contract address
-                const issueCredentialAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+                const issueCredentialAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
                 const contract = new ethers.Contract(issueCredentialAddress, IssueCredential.abi, signer);
                 const transaction = await contract.storeCredential(issuer, studentId, ipfsHash);
 
@@ -42,6 +44,8 @@ export default function IssueCredentialForm() {
             }
         } catch (error) {
             console.error('Error storing credential:', error);
+        } finally {
+            setIsLoading(false); // Set loading to false after transaction completes
         }
     }
 
@@ -110,9 +114,10 @@ export default function IssueCredentialForm() {
                     <div className="text-center">
                         <button
                             type="submit"
-                            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md`}
+                            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            disabled={isLoading} // Disable button when loading
                         >
-                            Store on Blockchain
+                            {isLoading ? 'Storing...' : 'Store on Blockchain'} {/* Show loading text when loading */}
                         </button>
                     </div>
                 </form>
