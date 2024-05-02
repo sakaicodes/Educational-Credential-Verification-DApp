@@ -15,7 +15,7 @@ export default function Header() {
                     {(CURRENT_USER === USER_TYPES.VERIFIER || CURRENT_USER === USER_TYPES.ADMIN) && <NavLink to="/verifierportal">Verifier Portal</NavLink>}
                     {(CURRENT_USER === USER_TYPES.ISSUER || CURRENT_USER === USER_TYPES.ADMIN) && <NavLink to="/issuerportal">Issuer Portal</NavLink>}
                     {(CURRENT_USER === USER_TYPES.ISSUER || CURRENT_USER === USER_TYPES.ADMIN) && <NavLink to="/dashboard">Dashboard</NavLink>}
-                    <div className='text-white'>Logged in as a {CURRENT_USER}</div>
+                    <div className='text-white'>Logged in as an {CURRENT_USER}</div>
                 </div>
             </div>
         </nav>
