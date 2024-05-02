@@ -8,6 +8,9 @@ const SEPOLIA_PRIVATE_KEY = vars.get("SEPOLIA_PRIVATE_KEY");
 module.exports = {
   solidity: "0.8.24",
   networks: {
+    hardhat: {
+      chainId: 1337,
+  },
     sepolia: {
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
       accounts: [SEPOLIA_PRIVATE_KEY]
