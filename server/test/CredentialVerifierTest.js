@@ -1,5 +1,4 @@
 const { ethers } = require("hardhat");
-const { ethers: ethersoriginal } = require("ethers");
 const { expect } = require("chai");
 
 describe("VerifyCredential", function () {
