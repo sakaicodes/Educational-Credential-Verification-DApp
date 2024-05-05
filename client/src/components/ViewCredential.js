@@ -17,7 +17,7 @@ export default function ViewCredential() {
                     const provider = new ethers.providers.Web3Provider(window.ethereum);
                     const signer = provider.getSigner();
                     // Contract address
-                    const issueCredentialAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+                    const issueCredentialAddress = "0x52E12df5Be8Ec1C58aD2E38cC875aaA0f8fF2bdb";
                     const contract = new ethers.Contract(issueCredentialAddress, IssueCredential.abi, signer);
                     const credentials = await contract.viewAllIssuedCredentials();
                     setCredentials(credentials);

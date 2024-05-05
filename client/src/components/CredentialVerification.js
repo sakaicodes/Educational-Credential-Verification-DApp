@@ -9,7 +9,7 @@ export default function CredentialVerification() {
   const [verificationResult, setVerificationResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const VerifyContractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+  const VerifyContractAddress = "0x592CA90450Bbb2F10D52975A1b3700bc0B70324d";
 
   async function fetchIPFSHash(credentialId) {
     if (typeof window.ethereum !== "undefined") {
