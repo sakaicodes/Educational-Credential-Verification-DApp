@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // UploadCredential component
- export default function UploadCredential() {
+export default function UploadCredential() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [ipfsHash, setIpfsHash] = useState("");
   const [uploading, setUploading] = useState(false);
@@ -65,9 +65,8 @@ import React, { useState } from "react";
         />
         <div className="flex justify-center">
           <button
-            className={`mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mx-auto ${
-              uploading && "opacity-50 cursor-not-allowed"
-            }`}
+            className={`mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mx-auto ${uploading && "opacity-50 cursor-not-allowed"
+              }`}
             onClick={handleSubmission}
             disabled={uploading || !selectedFile}
           >

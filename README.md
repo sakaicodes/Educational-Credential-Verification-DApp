@@ -38,7 +38,7 @@ npx hardhat compile
 ```
 
 ### Step 5: Deploy Smart Contracts
-The order of deployment is important. Deployment of the smart contract returns an address of the deployed contract. It is important to record these addresses and store them in the `.env` file.
+The order of deployment is important. Deployment of the smart contract returns an address of the deployed contract. It is important to record these addresses and store them in the `.env.local` file. This .env.local file should be in the src folder.
 
 #### Deploy Issuing Smart Contract
 ```bash
@@ -49,6 +49,7 @@ npx hardhat ignition deploy ./ignition/modules/Issue.js --network localhost --re
 ```bash
 npx hardhat ignition deploy ./ignition/modules/Verify.js --network localhost --reset
 ```
+Note: Include the issue crdential smart contract address in the Verify module before deployment.
 
 ### Step 6: Copy Artifacts
 Copy the `artifacts` folder from the `server` directory into the `client/src` folder. This is the current workaround for integrating the frontend and backend, as APIs have not been implemented and are currently in development.

@@ -26,7 +26,8 @@ export default function IssueCredentialForm() {
                 const provider = new ethers.providers.Web3Provider(window.ethereum)
                 const signer = provider.getSigner();
                 // Contract address
-                const issueCredentialAddress = "0x52E12df5Be8Ec1C58aD2E38cC875aaA0f8fF2bdb";
+                const issueCredentialAddress = process.env.REACT_APP_ISSUE_CONTRACT_ADDRESS;
+                console.log(issueCredentialAddress);
                 const contract = new ethers.Contract(issueCredentialAddress, IssueCredential.abi, signer);
                 const transaction = await contract.storeCredential(issuer, studentId, ipfsHash);
 
@@ -68,7 +69,7 @@ export default function IssueCredentialForm() {
         if (isCredentialStored) {
             timer = setTimeout(() => {
                 setIsCredentialStored(false);
-            }, 5000); 
+            }, 5000);
         }
         return () => clearTimeout(timer);
     }, [isCredentialStored]);
